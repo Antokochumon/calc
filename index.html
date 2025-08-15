@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Web calculator</title>
@@ -45,59 +46,62 @@
         .btn:hover {
             transform: scale(1.1);
         }
-        .head{
+        .head {
             color: white;
         }
-        .foot{
-            
+        .foot {
             position: absolute;
             top: 800px;
             left: 30%;
-            
-            
-         }
-         #nav{
-             position: absolute;
-             top:0px;
-             width: 100%;
-         }
-         body nav a{
-             font-weight: bold;
-             font-size: 30px;
-         }
+        }
+        #nav {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+        }
+        body nav a {
+            font-weight: bold;
+            font-size: 30px;
+        }
     </style>
 </head>
+
 <body>
-    <nav id="nav"class="navbar navbar-light  bg-success justify-content-between">
+
+    <nav id="nav" class="navbar navbar-light bg-success justify-content-between">
         <a class="navbar-brand text-white">Web calculator</a>
-      </nav>
+    </nav>
+
     <div class="container d-flex justify-content-center align-items-center">
-        
         <div class="calc text-center" style="margin-top: 70px;">
-            
             <input type="text" id="screen" class="form-control mb-3" readonly>
+
             <div class="row justify-content-end">
-                <button onclick="clearDisplay()" class="btn btn-danger mr-5">C</button>
+                <button onclick="clearDisplay()" class="btn btn-danger m-2">C</button>
+                <button onclick="deleteLast()" class="btn btn-warning m-2">⌫</button>
             </div>
-            
+
             <div class="row justify-content-center">
                 <button onclick="buttonclick(7)" class="btn m-2">7</button>
                 <button onclick="buttonclick(8)" class="btn m-2">8</button>
                 <button onclick="buttonclick(9)" class="btn m-2">9</button>
                 <button onclick="buttonclick('/')" class="btn m-2">/</button>
             </div>
+
             <div class="row justify-content-center">
                 <button onclick="buttonclick(4)" class="btn m-2">4</button>
                 <button onclick="buttonclick(5)" class="btn m-2">5</button>
                 <button onclick="buttonclick(6)" class="btn m-2">6</button>
-                <button onclick="buttonclick('*')" class="btn m-2">*</button>
+                <button onclick="buttonclick('*')" class="btn m-2">×</button>
             </div>
+
             <div class="row justify-content-center">
                 <button onclick="buttonclick(1)" class="btn m-2">1</button>
                 <button onclick="buttonclick(2)" class="btn m-2">2</button>
                 <button onclick="buttonclick(3)" class="btn m-2">3</button>
                 <button onclick="buttonclick('-')" class="btn m-2">-</button>
             </div>
+
             <div class="row justify-content-center">
                 <button onclick="buttonclick('.')" class="btn m-2">.</button>
                 <button onclick="buttonclick(0)" class="btn m-2">0</button>
@@ -106,18 +110,15 @@
             </div>
         </div>
     </div>
+
     <footer class="foot">
         <div class="container">
-          <div class="row">
-            <p style="color:white;">Designed and Devloped By<br> <span style="color:yellow;">Anto kochumon</span></p>
-            
+            <div class="row">
+                <p style="color:white;">Designed and Developed By<br>
+                    <span style="color:yellow;">Anto Kochumon</span></p>
+            </div>
         </div>
- 
-     </div>
-   </div>
- </footer>
- 
-     
+    </footer>
 
     <script>
         function buttonclick(val) {
@@ -125,6 +126,10 @@
         }
         function clearDisplay() {
             document.getElementById('screen').value = "";
+        }
+        function deleteLast() {
+            let current = document.getElementById('screen').value;
+            document.getElementById('screen').value = current.slice(0, -1);
         }
         function equalclick() {
             try {
